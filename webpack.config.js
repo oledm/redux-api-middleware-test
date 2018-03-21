@@ -107,35 +107,6 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.html$/,
-        use: {
-          loader: 'file-loader',
-          query: {
-            name: '[name].[ext]',
-          },
-        },
-      },
-      {
-        test: /\.scss$/,
-        include: [/main/, /node_modules/],
-        use: isProd
-          ? extractSASS.extract({
-            fallback: 'style-loader',
-            use: ['css-loader', 'sass-loader'],
-          })
-          : ['style-loader', 'css-loader', 'sass-loader'],
-      },
-      {
-        test: /\.css$/,
-        //                exclude: /node_modules/,
-        use: isProd
-          ? extractCSS.extract({
-            fallback: 'style-loader',
-            use: [cssLoader],
-          })
-          : ['style-loader', cssLoader],
-      },
-      {
         test: /\.(js)$/,
         exclude: /node_modules/,
         use: [
@@ -188,21 +159,13 @@ module.exports = {
   devServer: {
     contentBase: '.',
     publicPath: '/',
-    historyApiFallback: true,
     port: PORT,
     host: HOST,
-    hot: true,
+    hot: false,
     inline: true,
-    compress: isProd,
     stats: {
       colors: true,
       chunks: false, // be less verbose
     },
-  },
-  externals: {
-    cheerio: 'window',
-    'react/addons': true, // important!!
-    'react/lib/ExecutionEnvironment': true,
-    'react/lib/ReactContext': true,
   },
 }
