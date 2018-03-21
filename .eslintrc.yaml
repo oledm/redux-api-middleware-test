@@ -1,0 +1,48 @@
+---
+env:
+  browser: true
+  mocha: true
+settings:
+  import/resolver:
+    webpack:
+      config: webpack.config.js
+plugins:
+  - babel
+parser: babel-eslint
+extends: airbnb
+rules:
+  strict: 0
+  semi:
+    - 2
+    - never
+  no-var: error
+  import/prefer-default-export: 0
+  arrow-body-style: 0
+  no-console: 0
+  react/prop-types: 0
+  no-unused-vars: 0
+  react/jsx-filename-extension:
+    - 1
+    - extensions:
+      - ".js"
+      - ".jsx"
+  object-curly-spacing: 2
+  consistent-return: 0
+  spaced-comment: 0
+  no-shadow: 0
+  no-underscore-dangle: 0
+  new-cap: 0
+  babel/new-cap: 0
+  react/forbid-prop-types: 0
+  comma-dangle:
+    - error
+    - arrays: always-multiline
+      objects: always-multiline
+      imports: always-multiline
+      exports: always-multiline
+      functions: ignore
+  jsx-a11y/no-static-element-interactions: 0
+  jsx-a11y/click-events-have-key-events: 0
+  func-names:
+    - 2
+    - never
